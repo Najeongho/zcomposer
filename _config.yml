@@ -1,9 +1,9 @@
 # Site settings
-title: Cloud Z Composer Documentation
+title: Cloud Z Composer
 email: zaction@sk.com
 description: >
   Cloud Z Composer Project Websites
-  providing documentation and blog post pages.
+  Providing documentation and pages.
 
 baseurl: "/zcomposer" # the subpath of your site, e.g. /blog/
 url: https://skcloud.github.io/zcomposer # the base hostname & protocol for your site
