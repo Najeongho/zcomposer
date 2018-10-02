@@ -1,147 +1,209 @@
++++
+title = "home"
+date = 2018-07-05T04:20:00Z
+weight = 1
+alwaysopen = true
++++
+
+# Cloud Z Composer
+--- 
+Cloud Z Composer는 IT 자동화의 확장, 복잡한 배치 관리 및 생산성 향상을 지원합니다. 앱 배포에서 다중 계층 조정에 이르기까지 제어, 보안 및 위임 기능을 추가하여 엔터프라이즈 자동화를 지원합니다. 시각적 대시 보드, 역할 기반 액세스 제어, 작업 스케줄링, 통합 알림 및 그래픽 인벤토리 관리로 IT 인프라를 중앙 집중화하고 제어하십시오.
+
+> Cloud Z Composer의 REST API 및 CLI를 사용하면 기존 도구 및 프로세스에 Cloud Z Composer를 쉽게 사용 할 수 있습니다.
+
+## Dash Board
 ---
-title: Getting Started
-permalink: /docs/home/
-redirect_from: /docs/index.html
+### Dash Board란?
+Cloud Z Composer Dash Board는 각종 배포 자동화 환경에서 진행되는 모든 작업에 대한 디스플레이를 제공합니다.
+
+
+### 출력 대상
+
+출력 대상은 다음과 같은 항목들이 있습니다.
+
+- Host 및 Inventory
+- 최근 작업 활동
+- 최근 작업 실행의 Snapshot
+- 작업 상태
+- 특정 작업 및 시간 범위의 데이터를 그래프화
+
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/1dashboard.png)
+
+## 실시간 작업 상태 업데이트
 ---
+Cloud Z Composer 내에서 Playbook은 실시간 스트림 형태로 실행됩니다. Cloud Z Composer는 인프라 전반에서 자동화되므로 각 호스트별로 완전히 분리되고 성공 또는 실패가 출력과 함께 완료됩니다.
 
-# Cloud Z Action 시작하기
+자동화 상태와 대기열에 있는 다음 사항을 쉽게 확인할 수 있습니다.
 
-## Step 1. Cloud Z Action 주문하기
+- 소스 제어 업데이트
+- 클라우드 Inventory 갱신
+- 다른 유형의 작업을 공통 작업 목록에 표시
 
-- Cloud Z Action을 사용하기 위해서는 먼저 Cloud Z 포털에 서비스 주문을 해야합니다.
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/2job_result.png)
 
-### 회원가입 하기
+## Multi Playbook 워크플로우
+---
+Cloud Z Composer의 Multi Playbook 워크플로우는 다른 인벤토리를 사용하든, 다른 사용자로 실행하든, 한 번에 실행하든, 다른 자격 증명을 활용하든 상관없이 원하는 수의 Playbook을 연결할 수 있습니다.
 
-[www.cloudz.co.kr](http://www.cloudz.co.kr) 에 접속하여 `로그인` 버튼 -> `회원가입` 버튼 순으로 클릭합니다. '회원가입 유형'은 기업으로 선택합니다.  
+Cloud Z Composer는 많은 복잡한 작업을 처리하는 프로비저닝 워크플로우를 구축할 수 있습니다.
 
-![Step1_6](../img/QuickStart/Step1_6.png)
+- 시스템 프로비저닝
+- 기본 시스템 구성 적용
+- 애플리케이션 배포
 
-회원가입 전 서비스 이용 약관 내용에 동의해야 합니다.  
-![Step1_7](../img/QuickStart/Step1_7.png)
+Work Flow는 서로 다른 팀에서 관리하는 다양한 Playbook으로 제공됩니다.
 
-회원가입에 필요한 정보들을 모두 입력 후 **가입 신청하기** 버튼을 클릭합니다.  
-![Step1_8](../img/QuickStart/Step1_8.png)
+- 애플리케이션을 빌드
+- 테스트 환경에 배포
+- 테스트 실행
+- 테스트 결과에 따라 애플리케이션을 자동으로 구분하는 CI/CD 테스트 워크플로우를 구축
 
-- 정보 입력 시 **메일 주소는 정확하게 입력**하셔야 합니다. 해당 메일주소로 승인메일(비밀번호, 접속URL 정보 포함)이 발송됩니다.
+>이전 워크플로우 Playbook의 성공 또는 실패 시 실행할 다른 Playbook을 설정합니다.
 
-### 주문하기
-회원가입한 정보로 로그인 후 우측 상단에 `콘솔` 버튼을 눌러 콘솔화면으로 이동합니다.  
+> Cloud Z Composer의 직관적인 워크플로우 편집기를 사용하여 복잡한 프로세스를 쉽게 모델링할 수 있습니다.
 
-![Step1_1](../img/QuickStart/Step1_1.png)
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/3workflow.png)
 
-콘솔 화면에서 좌측 네비게이션바에 있는 Compute -> Cloud Z Action을 선택한 후 `+ Cloud Z Action` 버튼을 클릭합니다.  
+## Role based 접근 관리
+---
+Cloud Z Composer를 사용하면 모든 자동화 활동이 안전하게 기록됩니다.
 
-![Step1_2](../img/QuickStart/Step1_2.png)
+- 누가 실행했는지
+- 어떻게 정의했는지
+- 어떤 Job이 실행했는지
 
-`주문하기` 버튼을 클릭합니다.  
+> 모두 안전하게 저장 및 볼 수 있으며, API를 통해 내용을 Export 할수 있습니다.
 
-![Step1_3](../img/QuickStart/Step1_3.png)
+활동 스트림은 Cloud Z Composer 자체에 대한 모든 변경 사항에 대한 전체 Audit 추적을 표시함으로써 이러한 내용을 확장합니다.
 
-상품 구성에 대해 원하는 상품을 선택하고 `주문하기` 버튼을 클릭합니다.  
+- 작업 생성
+- Inventory 변경
+- 자격 증명 저장소
+- 모든 내용을 안전하게 추적
 
-![Step1_4](../img/QuickStart/Step1_4.png)
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/4role_based.png)
 
-최종적으로 주문내역을 확인 및 동의를 하고 `확인` 버튼을 클릭합니다.  
+## 클러스터 구성
+---
+여러 개의 Cloud Z Composer 노드를 Cloud Z Composer 클러스터에 연결합니다. Cloud Z Composer 클러스터는 중복성과 용량을 추가하여 전사규모로 자동화를 확장할 수 있도록 지원합니다.
 
-![Step1_5](../img/QuickStart/Step1_5.png)
+- 예약된 용량과 용량을 조직, Inventory 등을 기준으로 추가합니다.
+- 추가 로컬 용량과 네트워크 영역 간 액세스를 위해 원격 실행 노드를 배포합니다.
 
-## Step 2. Cloud Z Action 포털에 로그인하기
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/5cluster.png)
 
-[action.cloudz.co.kr](action.cloudz.co.kr) 에 접속 후 우측 상단에 <로그인> 버튼을 눌러 로그인 합니다.  
+## 통합 Notification
+---
+통합 Notification를 통해 자동화 상태에 대한 정보를 지속적으로 제공하십시오. 작업이 성공하면 개인 또는 팀에 알리거나 작업이 실패할 경우 에스컬레이션합니다. 전체 조직에 대해 한 번에 통지를 보내거나 작업별로 사용자 정의하십시오. 
 
-![Step2_1](../img/QuickStart/Step2_1.png)
+다음과 같은 메시지 툴에 Notification을 연결할 수 있습니다.
 
-로그인 시 Step 1 ([www.cloudz.co.kr](http://www.cloudz.co.kr)) 에서 가입한 회원정보로 로그인 합니다.  
+- SMS
+- Email
+- Slack
+- Hipchat
 
-![Step2_2](../img/QuickStart/Step2_2.png)
+> 사용자 지정 웹 후크에 Notification을 게시하여 인프라의 다른 툴을 트리거할 수 있습니다.
 
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/6notification.png)
 
-## Step 3. Cloud Z Action 함수액션 생성하기
+## Job 스케쥴링
+---
+Playbook 실행, 클라우드 인벤토리 업데이트 및 소스 제어 업데이트를 지금 실행, 나중에 실행 또는 영구적으로 실행할 수 있습니다. 
 
-- **액션(Action) 이란?: Cloud Z Action을 이용하여 생성 가능한 모든 단위의 추상화된 개념입니다. Cloud Z Action에는 함수액션, 스위치액션, 액션플로우가 존재합니다.**
+> 야간 백업, 규정 준수를 위한 주기적인 구성 업데이트 적용 또는 단 몇 번의 클릭만으로 지속적인 전체 제공 파이프라인과 같은 간헐적인 작업을 설정할 수 있습니다.
 
-### 함수액션 생성하기
-메인 페이지에서 좌측 상단에 `새로만들기` 버튼을 클릭합니다.  
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/7job_schedule.png)
 
-![Step2_1](../img/QuickStart/Step2_1.png)
+## Inventory 관리 및 추적
+---
+Cloud Z Composer를 통해 다음의 클라우드 인프라를 관리할 수 있습니다.
 
-`함수` 버튼을 클릭합니다.  
+- IBM Cloud (Softlayer)
+- Amazon Web Services
+- Microsoft Azure
+- Google Cloud Platform
+- OpenStack
+- VMware
 
-![Step3_1](../img/QuickStart/Step3_1.png)
+> 클라우드 인벤토리의 동기화를 유지할 수 있으며, Cloud Z Composer의 강력한 프로비저닝 콜백을 통해 노드가 온디맨드 방식으로 구성을 요청할 수 있어 자동 확장이 가능합니다.
 
-- 함수 (Function): 코드를 포함한 기본적인 액션입니다.(javascript, python)
-- 스위치 (Switch): 조건에 따라 수행되는 액션을 다르게 분기하며, 병렬수행을 가능하게 합니다.
-- 플로우 (Flow): 플로우는 정의된 순서대로 여러개의 액션을 호출합니다.
-- 트리거 (Trigger): 트리거는 이벤트를 수신하여 연결된 액션을 호출합니다.
-- 블루프린트 (Blueprint): 기본제공되는 템플릿 및 다른 사용자들이 공유한 액션을 이요하면 보다 손쉽게 액션을 만들 수 있습니다.
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/8inventory.png)
 
-함수액션 생성을 위한 정보들을 입력합니다. 정보 입력 후 <함수만들기> 버튼을 클릭합니다.  
+## 단순화된 셀프 서비스 제공
+---
+Cloud Z Composer를 사용하면 클릭 한 번으로 Playbook을 시작할 수 있습니다. 또한 변수를 묻는 메시지를 표시하고 사용 가능한 보안 자격 증명 중에서 선택하고 결과 배포를 모니터링할 수 있습니다.
 
-![Step3_2](../img/QuickStart/Step3_2.png)
+> Survey : 간편한 Form builder Form을 신속히 작성하여 Cloud Z Composer 사용자로부터 작업 변수 요청할 수 있습니다.
 
-- \* 는 필수 입력 사항입니다.
-- 함수이름: 중복될 수 없습니다.
-- 패키지: 선택하지 않으면 '기본 패키지'로 생성 됩니다. `신규 패키지` 버튼을 누르면 패키지를 생성할 수 있습니다. **패키지 생성 후 패키지 안에 함수를 포함시키는 것을 권장합니다.**
-- 런타임: 사용할 언어를 선택할 수 있습니다.(베타오픈 기간 **지원 언어는 Nodejs 6, 8** 입니다. python, golang, php7 등의 언어는 추후에 제공 예정입니다.)
-- 버전: 코드의 버전관리가 가능합니다.
-- 태그: 태크를 통해 여러 함수들을 효율적으로 관리할 수 있습니다. (**태그 생성 방법: 태그명을 입력 후 [Enter]키 or [,]키를 입력하세요**)
+Cloud Z Composer의 간소화된 포털 모드 및 설문 조사 기능을 통해 IT 관리자는 다음과 같은 회사 디렉토리에서 직접 동기화된 자동화 작업 실행을 조직 전체의 사용자에게 위임할 수 있습니다.
 
-## Step 4. 코드 작성하기 후 함수액션 테스트하기
+- LDAP
+- Active Directory
+- 위임된 SAML 인증 
 
-### 코드 작성하기
-> 아래 코드는 API호출시 요청된 인자를 params를 통해 받을 수 있고, params에 name과 place값을 반환하는 예제입니다. 만약 name과 place값이 없다면 'Hello, Noone from Nowhere'를 반환하게 됩니다.
+> 개발자나 QA 부서는 Cloud Z Composer 위임을 통해 자체 개발 및 테스트 환경을 프로비저닝할 수 있습니다. 
 
-- Nodejs 6, 8
+>고객 서비스 에이전트는 새 데모 환경을 프로비저닝할 수 있습니다. 
 
-```    
-module.exports = function (context, params) {
-  let name = "Noone";
-  if (params.name) {
-      name = params.name;
-  }
-  let place = "Nowhere";
-  if (params.place) {
-      place = params.place;
-  }
-  return {myField: 'Hello, ' + name + ' from ' + place}
-};
-``` 
- 
-### 함수액션 테스트하기
-작성한 코드를 아래와 같이 입력하고, `저장` 버튼을 누른 후 `테스트` 버튼을 눌러 함수액션이 제대로 실행하는지 확인합니다.  
+>하위 관리자가 버튼 하나만 누르면 암호 변경과 같은 간단한 작업을 실행할 수 있습니다.
 
-![Step4_1](../img/QuickStart/Step4_1.png)
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/9Survey.png)
 
-## Step 5. 함수액션 편집 및 API엔드포인트 사용하기
+## Remote Command 실행
+---
+Cloud Z Composer의 Remote Command 실행을 통해 인벤토리의 모든 호스트 또는 호스트 그룹에서 간단한 작업을 실행할 수 있습니다. 
 
-`구성 정보` 버튼을 누르면 다음과 같은 화면이 나타납니다.  
+- 사용자 또는 그룹을 추가
+- 암호를 재설정
+- 오작동 서비스를 다시 시작
+- 중요한 보안 문제를 신속하게 패치
 
-![Step5_1](../img/QuickStart/Step5_1.png)
+> Remote Command 실행은 Cloud Z Composer의 역할 기반 액세스 제어 엔진을 사용하며 모든 작업을 기록합니다.
 
-- 기본정보: 패키지를 바꿀 수 있고, 태그, 함수액션에 대한 설명을 수정할 수 있습니다.
-- 매개변수: 매개변수를 추가하면 API 엔드포인트로 함수액션을 호출할 때 원하는값을 넘겨줄 수 있습니다.
-- 런타임:
-  * 타임아웃: 함수액션이 실행되는 제한시간(타임아웃)을 5초에서 300초까지 설정할 수 있습니다.
-  * 메모리: 함수액션이 실행되는 환경의 메모리 용량을 설정할 수 있습니다. 메모리는 64MB, 128MB, 256MB, 512MB 단위로 선택할 수 있습니다.
-- API 엔드포인트:
-  * Public/Private: Public은 누구나 접근 가능한 API 엔드포인트를 설정하고, Private은 API 엔드포인트가 API KEY로 보호합니다.
-  * API KEY: Private API 엔드포인트를 사용할 때 필요한 값입니다.
-  * API 엔드포인트 사용: 체크 시 API 엔드포인트를 사용할 수 있고 언체크 시 API 엔드포인트를 잠금할 수 있습니다.
-  * HTTP 메소드: GET, POST, PUT, DELETE를 선택할 수 있습니다.
-  * Content Type: 현재는 JSON만 제공합니다.
-  * URL:[https://api.action.cloudz.co.kr/](https://api.action.cloudz.co.kr/)`<함수액션 ID>`/`<함수액션 이름>` 형식으로 API 엔드포인트를 보여줍니다.
-  * CURL: 설정한 HTTP 메소드, 매개변수, API KEY를 포함하여 curl명령을 작성해 줍니다.
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/10runcommand.png)
 
-### curl을 통해 API 엔드포인트 요청하기
+## REST API 및 CLI 툴 제공
+---
+사용자 인터페이스에 국한되지 않고, Cloud Z Composer의 모든 기능을 Cloud Z Composer의 REST API를 통해 이용할 수 있으며, 이를 통해 구축할 수 있는 시스템 관리 인프라에 이상적인 API를 제공합니다. 빌드 도구에서 사용할 수 없는 작업을 호출하고 사용자 지정 대시보드에 사용할 수 없는 정보를 표시합니다.
 
-> <구성 정보\> 화면에서 작성된 curl 명령어를 복사하여 터미널창에서 실행합니다.
+> REST 코드를 작성하는 것보다 명령행 인터페이스를 래핑하는 것이 더 쉬운 경우, Jenkins와 같은 CI 시스템에서 작업을 시작하거나 다른 명령줄 도구와 통합해야 할 때 사용할 수 있는 Cloud Z Composer의 CLI 도구를 사용할 수 있습니다.
 
-```  
-$ curl --request GET -G --data "name=PMS&place=KOREA" -H "apikey: ***" https://api.action.cloudz.co.kr/<함수액션 ID>/myFunction
-``` 
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/11restapi.png)
 
-> <구성정보\> 에서 매개변수를 설정했기 때문에 'Hello, Noone from Nowhere' 대신 'Hello, PMS from KOREA'가 반환되는 것을 볼 수 있습니다.
+## Source Control 정보 수집 및 동기화
+---
+Git, SVN 또는 Mercurial에서 Playbook 및 Inventory 수집 및 동기화
 
-``` 
-  $ {"myField":"Hello, PMS from KOREA"}
-``` 
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/12source_control.png)
+
+## Run time Job 제어
+---
+Job 시작 시 Credential 증명, 인벤토리, 제한, 태그 등을 제공합니다.
+
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/13runtime.png)
+
+## Credential 관리
+---
+- Credential security : Secret을 노출하지 않고 안전하게 암호화 및 위임
+- Custom credentials : Inventory 및 Playbook에 사용할 사용자 지정 Credential 증명 유형 정의
+
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/14credential.png)
+
+## Network Account 통합
+---
+GitHub 및 Google Apps에서 사용자 및 팀 정보 동기화 및 통합
+
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/15network_account.png)
+
+## Multi tenancy
+---
+전체 권한 분리가 가능한 여러 조직 사용
+
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/16multi_tenancy.png)
+
+## Logging 및 분석 통합
+---
+Logstash, Splunk등 선택한 엔드포인트로 시스템 추적 및 Cloud Z Composer 작업 실행 출력 자동 내보내기
+
+![cloudZ](https://seo01.objectstorage.softlayer.net/v1/AUTH_a24ffe9e-6cac-4383-a870-99a6582e7964/zcomposer-docs/17logging.png)
